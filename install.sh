@@ -37,7 +37,7 @@ if ! command -v playwright-cli >/dev/null 2>&1; then
 fi
 say "playwright-cli $(playwright-cli --version)"
 
-# 3. Official playwright-cli skill inside the npm package (linked, never copied, so it tracks CLI updates)
+# 3. Official playwright-cli skill inside the npm package (files linked, never copied, so they track CLI updates)
 root="$(npm root -g)"
 official=""
 for c in "$root/@playwright/cli/skills/playwright-cli" \
@@ -66,7 +66,12 @@ install_to() {  # install_to SKILL_DIR SKILL_FILE
   mkdir -p "$dir/scripts"
   cp "$src" "$dir/SKILL.md"
   cp skill/scripts/*.sh "$dir/scripts/"; chmod +x "$dir/scripts/"*.sh
-  ln -sfn "$official" "$dir/playwright-cli"
+  # Link the official skill's files, not its folder: a nested file named SKILL.md would show up
+  # as a second "playwright-cli" skill next to "browser" (Codex scans skill folders recursively).
+  [ -L "$dir/playwright-cli" ] && rm "$dir/playwright-cli"   # older layout: one link to the whole folder
+  mkdir -p "$dir/playwright-cli"
+  ln -sfn "$official/SKILL.md" "$dir/playwright-cli/REFERENCE.md"
+  ln -sfn "$official/references" "$dir/playwright-cli/references"
   touch "$dir/.background-browser-skill"
   say "installed $dir"
 }

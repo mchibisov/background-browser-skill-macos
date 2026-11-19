@@ -6,7 +6,7 @@ allowed-tools: Bash(playwright-cli:*) Bash(cat:*) Bash($HOME/.claude/skills/brow
 
 # Browser work (playwright-cli + the user's rules)
 
-The official playwright-cli skill is bundled in this folder as `playwright-cli/` (a symlink to the installed npm package, so it always matches the CLI version). Its full text is inserted at the end of this skill. If it is missing there, read `$HOME/.claude/skills/browser/playwright-cli/SKILL.md` before the first command. Detailed guides: `$HOME/.claude/skills/browser/playwright-cli/references/*.md` (read only the one you need).
+The official playwright-cli skill is bundled in this folder as `playwright-cli/REFERENCE.md` (a symlink into the installed npm package, named so it is not loaded as a separate skill, so it always matches the CLI version). Its full text is inserted at the end of this skill. If it is missing there, read `$HOME/.claude/skills/browser/playwright-cli/REFERENCE.md` before the first command. Detailed guides: `$HOME/.claude/skills/browser/playwright-cli/references/*.md` (read only the one you need).
 
 The user's rules below override the official skill where they differ.
 
@@ -56,4 +56,4 @@ One headed Chrome per profile, minimized, never taking the user's focus; every s
 
 # Official playwright-cli skill (inserted from the installed package)
 
-!`cat "$HOME/.claude/skills/browser/playwright-cli/SKILL.md"`
+!`cat "$HOME/.claude/skills/browser/playwright-cli/REFERENCE.md"`
