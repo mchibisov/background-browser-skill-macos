@@ -5,7 +5,7 @@ description: Use for ANY browser task (open or check a website, log in, fill a f
 
 # Browser work (playwright-cli + the user's rules)
 
-Before the first command, read the official playwright-cli skill at `$HOME/.agents/skills/browser/playwright-cli/SKILL.md` (a symlink to the installed npm package, so it always matches the CLI version). Detailed guides: `$HOME/.agents/skills/browser/playwright-cli/references/*.md` (read only the one you need). If the link is broken, rerun the installer.
+Before the first command, read the official playwright-cli skill at `$HOME/.agents/skills/browser/playwright-cli/REFERENCE.md` (a symlink into the installed npm package, named so it is not listed as a separate skill, so it always matches the CLI version). Detailed guides: `$HOME/.agents/skills/browser/playwright-cli/references/*.md` (read only the one you need). If the link is broken, rerun the installer.
 
 The user's rules below override the official skill where they differ.
 
